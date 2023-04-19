@@ -26,3 +26,49 @@ Facebook 在 2013年正式发布了 React。它成为了世界上最受欢迎和
 - Props
 - Components
 - VirtualDOM
+
+## 二、构建第一个React应用程序
+
+### 1. 创建 React 单页应用程序
+
+使用脚手架下载并创建最新版本React应用程序
+```bash
+npx create-react-app monsters-rolodex
+```
+
+#### npm 与 npx 的区别？
+
+`npm` 将软件包安装在电脑中，而 `npx` 将最新的软件包下载下来之后并立即执行它，然后将其从磁盘中删除。
+
+使用 `npm` 命令全局安装 `cowsay`
+```bash
+npm install -g cowsay
+```
+
+运行 `cowsay`
+```bash
+cowsay hello
+```
+
+查看 `cowsay` 所在位置
+```bash
+npm list -g cowsay
+```
+
+卸载 `cowsay`
+```bash
+npm uninstall -g cowsay
+```
+
+使用 `npx` 安装 `cowsay`
+
+```bash
+npx cowsay hellow
+```
+
+### 2. 运行项目
+
+进入 `monsters-rolodex` 文件夹
+```bash
+cd monsters-rolodex
+```
