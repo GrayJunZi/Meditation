@@ -107,7 +107,7 @@ npm test
 - `public` - 公共静态文件夹。
 - `build` - 项目构建完成后的文件夹。
 
-#### 按钮绑定事件
+### 3. 绑定事件
 
 ```jsx
 const handleClick = () => {
@@ -121,7 +121,7 @@ return (
 );
 ```
 
-#### setState
+### 4. setState
 
 修改数据
 
@@ -148,6 +148,11 @@ this.setState(
 );
 ```
 
-#### 生命周期
+### 5. 生命周期
 
 - `componentDidMount` - React第一次将组件渲染到页面上时触发的事件。它仅在组件生命周期中发生一次。
+
+### 6. 组件
+
+#### Props
+
