@@ -156,3 +156,13 @@ this.setState(
 
 #### Props
 
+### 7. 类组件生命周期方法
+
+- `componentDidMount` - 组件装载事件
+- `componentDidUpdate` - 组件更新事件
+- `componentDidUnmount` - 组件卸载事件
+
+### 8. 功能组件
+
+- `useState`
+- `useEffect`
