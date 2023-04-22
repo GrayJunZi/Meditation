@@ -182,3 +182,12 @@ npx create-react-app crwn-clothing
 ```bash
 npm install sass
 ```
+
+### 路由
+
+安装路由组件
+```bash
+npm install react-router-dom@6
+```
+
+#### Outlet
