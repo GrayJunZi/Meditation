@@ -166,3 +166,19 @@ this.setState(
 
 - `useState`
 - `useEffect`
+
+### 9. DOM 和 虚拟DOM
+
+## 三、电子商务项目
+
+### 创建项目
+
+```bash
+npx create-react-app crwn-clothing
+```
+
+### 安装 sass
+
+```bash
+npm install sass
+```
