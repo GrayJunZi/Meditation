@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./sign-in.styles.scss";
 import { db } from "../../utils/storageLocal";
 
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
+import { UserContext } from "../../contexts/user.contexts";
 
 const defaultFormField = {
   email: "",
@@ -12,7 +13,7 @@ const defaultFormField = {
 const SignIn = () => {
   const [formFields, setFormFields] = useState(defaultFormField);
   const { email, password } = formFields;
-
+  const { setCurrentUser } = useContext(UserContext);
   const resetFormField = () => setFormFields(defaultFormField);
 
   const handleChange = (event) => {
@@ -23,8 +24,10 @@ const SignIn = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const response = db.createWithEmailAndPassword(email, password);
+    const response = db.getUserWithEmailAndPassword(email, password);
     if (response) {
+      console.log(response)
+      setCurrentUser(response);
       resetFormField();
     }
   };
