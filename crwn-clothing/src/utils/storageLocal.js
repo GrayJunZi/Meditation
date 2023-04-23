@@ -20,6 +20,19 @@ const db = {
     users.push(user);
     localStorage.setItem("users", JSON.stringify(users));
   },
+  createUser(user) {
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    let existUser = users.find(
+      (x) => x.email === user.email && x.password === user.password
+    );
+
+    if (existUser) {
+      return existUser;
+    }
+
+    users.push(user);
+    localStorage.setItem("users", JSON.stringify(users));
+  },
   createWithEmailAndPassword(email, password) {
     let users = JSON.parse(localStorage.getItem("users")) || [];
     let user = users.filter(
@@ -36,16 +49,13 @@ const db = {
         createdAt: new Date(),
       };
       users.push(user);
+      localStorage.setItem("users", JSON.stringify(users));
     }
-
-    localStorage.setItem("users", JSON.stringify(users));
     return user;
   },
   getUserWithEmailAndPassword(email, password) {
     let users = JSON.parse(localStorage.getItem("users")) || [];
-    let user = users.filter(
-      (x) => x.email === email && x.password === password
-    );
+    let user = users.find((x) => x.email === email && x.password === password);
     return user;
   },
 };

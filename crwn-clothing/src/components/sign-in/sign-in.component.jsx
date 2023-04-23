@@ -1,19 +1,17 @@
 import { useState } from "react";
-import "./sign-up.styles.scss";
+import "./sign-in.styles.scss";
 import { db } from "../../utils/storageLocal";
 
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
 const defaultFormField = {
-  displayName: "",
   email: "",
   password: "",
-  confirmPassword: "",
 };
-const SignUp = () => {
+const SignIn = () => {
   const [formFields, setFormFields] = useState(defaultFormField);
-  const { displayName, email, password, confirmPassword } = formFields;
+  const { email, password } = formFields;
 
   const resetFormField = () => setFormFields(defaultFormField);
 
@@ -25,38 +23,17 @@ const SignUp = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    if (password !== confirmPassword) {
-      alert("密码不匹配");
-      return;
+    const response = db.createWithEmailAndPassword(email, password);
+    if (response) {
+      resetFormField();
     }
-
-    const response = db.createUser({
-      uid: +new Date(),
-      displayName: displayName,
-      email: email,
-      accessToken: "token",
-      password: password,
-      createdAt: new Date(),
-    });
-    console.log(response);
-    resetFormField();
   };
 
   return (
-    <div className="sign-up-container">
-      <h2>没有帐号？</h2>
-      <span>使用邮箱和密码注册</span>
+    <div className="sign-in-container">
+      <h2>已经有帐号了？</h2>
+      <span>使用邮箱和密码登录</span>
       <form onSubmit={handleSubmit}>
-        <FormInput
-          label="Display Name"
-          type="text"
-          required
-          onChange={handleChange}
-          name="displayName"
-          value={displayName}
-        />
-
         <FormInput
           label="Email"
           type="email"
@@ -73,21 +50,12 @@ const SignUp = () => {
           name="password"
           value={password}
         />
-
-        <FormInput
-          label="Confirm Password"
-          type="password"
-          required
-          onChange={handleChange}
-          name="confirmPassword"
-          value={confirmPassword}
-        />
         <Button buttonType="inverted" type="submit">
-          Sign Up
+          Sign In
         </Button>
       </form>
     </div>
   );
 };
 
-export default SignUp;
+export default SignIn;
