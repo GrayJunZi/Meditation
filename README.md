@@ -194,3 +194,4 @@ npm install react-router-dom@6
 
 ### Context
 
+### 观察者模式 (Observer Pattern)
