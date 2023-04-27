@@ -1,5 +1,5 @@
 import { Fragment, useContext } from "react";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 import {
