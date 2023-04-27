@@ -3,7 +3,7 @@ import "./sign-in.styles.scss";
 import { db } from "../../utils/storageLocal";
 
 import FormInput from "../form-input/form-input.component";
-import Button from "../button/button.component";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import { UserContext } from "../../contexts/user.context";
 
 const defaultFormField = {
@@ -26,7 +26,7 @@ const SignIn = () => {
     event.preventDefault();
     const response = db.getUserWithEmailAndPassword(email, password);
     if (response) {
-      console.log(response)
+      console.log(response);
       setCurrentUser(response);
       resetFormField();
     }
@@ -53,7 +53,7 @@ const SignIn = () => {
           name="password"
           value={password}
         />
-        <Button buttonType="inverted" type="submit">
+        <Button buttonType={BUTTON_TYPE_CLASSES.inverted} type="submit">
           Sign In
         </Button>
       </form>

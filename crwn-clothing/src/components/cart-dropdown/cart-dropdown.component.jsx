@@ -1,7 +1,11 @@
 import { useContext } from "react";
 import Button from "../button/button.component";
 import CartItem from "../cart-item/cart-item.component";
-import "./cart-dropdown.styles.scss";
+import {
+  CartDropdownContainer,
+  EmptyMessage,
+  CartItems,
+} from "./cart-dropdown.styles.jsx";
 import { CartContext } from "../../contexts/cart.context";
 import { useNavigate } from "react-router-dom";
 
@@ -14,14 +18,18 @@ const CartDropdown = () => {
   };
 
   return (
-    <div className="cart-dropdown-container">
-      <div className="cart-items">
-        {cartItems.map((cartItem) => (
-          <CartItem cartItem={cartItem} key={cartItem.id} />
-        ))}
-      </div>
+    <CartDropdownContainer>
+      <CartItems>
+        {cartItems.length ? (
+          cartItems.map((cartItem) => (
+            <CartItem cartItem={cartItem} key={cartItem.id} />
+          ))
+        ) : (
+          <EmptyMessage>你的购物车是空的</EmptyMessage>
+        )}
+      </CartItems>
       <Button onClick={goToCheckoutHandler}>支付</Button>
-    </div>
+    </CartDropdownContainer>
   );
 };
 

@@ -1,18 +1,14 @@
-import "./form-input.styles.scss";
+import { FormInputLabel, Input, Group } from "./form-input.styles.jsx";
 const FormInput = ({ label, ...optherProps }) => {
   return (
-    <div className="group">
-      <input className="form-input" {...optherProps} />
+    <Group>
+      <Input {...optherProps} />
       {label && (
-        <label
-          className={`${
-            optherProps.value.length ? "shrink" : ""
-          } form-input-label`}
-        >
+        <FormInputLabel shrink={optherProps.value.length}>
           {label}
-        </label>
+        </FormInputLabel>
       )}
-    </div>
+    </Group>
   );
 };
 export default FormInput;

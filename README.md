@@ -195,3 +195,9 @@ npm install react-router-dom@6
 ### Context
 
 ### 观察者模式 (Observer Pattern)
+
+### styled-components
+
+```bash
+npm install styled-components
+```
