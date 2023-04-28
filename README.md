@@ -201,3 +201,8 @@ npm install react-router-dom@6
 ```bash
 npm install styled-components
 ```
+
+### Redux
+
+- Reducer
+- Action
