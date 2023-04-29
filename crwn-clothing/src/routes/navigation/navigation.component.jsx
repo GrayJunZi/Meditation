@@ -11,14 +11,12 @@ import { UserContext } from "../../contexts/user.context";
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 import { CartContext } from "../../contexts/cart.context";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selector";
 
 const Navigation = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser);
   const { isCartOpen } = useContext(CartContext);
-
-  const signOutHandler = () => {
-    setCurrentUser(null);
-  };
 
   return (
     <Fragment>
@@ -29,9 +27,7 @@ const Navigation = () => {
         <NavLinksContainer>
           <NavLink to="/shop">SHOP</NavLink>
           {currentUser ? (
-            <NavLink as="span" onClick={signOutHandler}>
-              SIGN OUT
-            </NavLink>
+            <NavLink as="span">SIGN OUT</NavLink>
           ) : (
             <NavLink to="/auth">SIGN IN</NavLink>
           )}

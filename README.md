@@ -206,3 +206,8 @@ npm install styled-components
 
 - Reducer
 - Action
+
+### Redux
+```bash
+npm install redux
+```
