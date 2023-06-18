@@ -7,7 +7,6 @@ import {
   NavLinksContainer,
   NavigationContainer,
 } from "./navigation.styles";
-import { UserContext } from "../../contexts/user.context";
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 import { CartContext } from "../../contexts/cart.context";
